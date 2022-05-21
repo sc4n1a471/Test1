@@ -6,7 +6,7 @@ function console_log($data) {
     echo '</script>';
 }
 
-class DatabaseConnection {
+class DatabaseController {
     private const servername = "<dbServer>";
     private const username = "<dbUser>";
     private const password = "<dbPassword>";
@@ -26,7 +26,7 @@ class DatabaseConnection {
         // Checking connection
         if (!$connection) {
             console_log($connection->connect_error);
-            die("Connection failed: " . $connection->connect_error);
+            die("Error: Connection failed: " . $connection->connect_error);
         }
 
         console_log("Succesfully connected!");
@@ -35,21 +35,29 @@ class DatabaseConnection {
         if ($table === "users") {
             $sqlCommand = "SELECT * FROM users";
         } else if ($table === "advertisements") {
-            $sqlCommand = "SELECT advertisements.id, advertisements.userid, advertisements.title, users.name FROM advertisements, users";
+            $sqlCommand = "SELECT advertisements.id, advertisements.userid, advertisements.title, users.name FROM advertisements, users WHERE advertisements.userid = users.id";
         } else {
             $sqlCommand = "Unknown table";
             console_log("This table does not exist");
         }
 
         if ($sqlCommand !== "Unknown table") {
-            $result = $connection->query($sqlCommand);
+            $result = $connection->query($sqlCommand) or die("Error: Could not query requested data!");
 
-//            while ($row = $result->fetch_assoc()) {
-//                console_log($row["id"]);
-//            }
+//            $data = mysqli_fetch_all($result);    // this returns with normal array
 
+            // MYSQLI_ASSOC
+            // Columns are returned into the array having the fieldname as the array index.
+            $data = mysqli_fetch_all($result, MYSQLI_ASSOC);    // returns an object with "id"/"name" as keys
 
+            $result -> free_result();   // Free result set
+            $connection->close();       // Close connection
+            console_log($data);
+
+            return $data;
+        } else {
+            $connection->close();
+            return "Error: no usable data, possibly wrong table was given";
         }
-
     }
 }

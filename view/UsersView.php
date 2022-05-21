@@ -1,8 +1,25 @@
 <a class="link" href="../index.php">Back</a>
 <h1>Users</h1>
-<?php
-    include_once "../controller/DatabaseConnection.php";
 
-    $db = new DatabaseConnection();
-    $db->getAllData("users");
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+    </tr>
+
+<?php
+include_once "../controller/DatabaseController.php";
+include_once "../controller/UserController.php";
+
+$UserController = new UserController();
+$users = $UserController->getUsers();
+
+foreach ($users as $user) {
+    echo "<tr><td>"
+        . $user->getId() ."</td><td>"
+        . $user->getName() ."</td><td>";
+}
+
 ?>
+
+</table>

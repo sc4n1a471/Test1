@@ -3,12 +3,14 @@
 class Advertisement {
     private $id;
     private $userid;
-    private $name;
+    private $title;
+    private $username;
 
-    public function __construct($id, $userid, $name) {
+    public function __construct($id, $userid, $title, $username) {
         $this->id = $id;
         $this->userid = $userid;
-        $this->name = $name;
+        $this->title = $title;
+        $this->username = $username;
     }
 
     /**
@@ -21,8 +23,8 @@ class Advertisement {
     /**
      * @return mixed
      */
-    public function getName() {
-        return $this->name;
+    public function getTitle() {
+        return $this->title;
     }
 
     /**
@@ -30,5 +32,12 @@ class Advertisement {
      */
     public function getUserid() {
         return $this->userid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername() {
+        return $this->username;
     }
 }
