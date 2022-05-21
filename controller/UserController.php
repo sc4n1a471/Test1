@@ -18,7 +18,6 @@ class UserController {
             $user = new User($individualData["id"], $individualData["name"]);
             $users[] = $user;
         }
-//        console_log($users[0]->getName());
         return $users;
     }
 }

@@ -1,11 +1,5 @@
 <?php
 
-function console_log($data) {
-    echo '<script>';
-    echo 'console.log(' . json_encode($data) . ')';
-    echo '</script>';
-}
-
 class DatabaseController {
     private const servername = "<dbServer>";
     private const username = "<dbUser>";
@@ -25,11 +19,8 @@ class DatabaseController {
 
         // Checking connection
         if (!$connection) {
-            console_log($connection->connect_error);
             die("Error: Connection failed: " . $connection->connect_error);
         }
-
-//        console_log("Succesfully connected!");
 
         /*
          * Determine what table's data is requested
@@ -40,7 +31,6 @@ class DatabaseController {
             $sqlCommand = "SELECT advertisements.id, advertisements.userid, advertisements.title, users.name FROM advertisements, users WHERE advertisements.userid = users.id";
         } else {
             $sqlCommand = "Unknown table";
-            console_log("This table does not exist");
         }
 
         if ($sqlCommand !== "Unknown table") {
@@ -54,7 +44,6 @@ class DatabaseController {
 
             $result -> free_result();   // Free up result set
             $connection->close();       // Close connection
-//            console_log($data);
 
             return $data;
         } else {

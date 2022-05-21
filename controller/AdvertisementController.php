@@ -25,7 +25,6 @@ class AdvertisementController {
             );
             $ads[] = $ad;
         }
-//        console_log($ads[0]->getTitle());
         return $ads;
     }
 }
