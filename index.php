@@ -2,7 +2,7 @@
 ?>
 <nav>
     <?php
-    echo "<a class=\"link\" href=\"view/UsersView.php\">Users</a>";
-    echo "<a class=\"link\" href=\"view/AdsView.php\">Advertisements</a>";
+    echo "<a class=\"link\" href=\"users\">Users</a>";
+    echo "<a class=\"link\" href=\"ads\">Advertisements</a>";
     ?>
 </nav>

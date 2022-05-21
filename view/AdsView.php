@@ -1,4 +1,4 @@
-<a class="link" href="../index.php">Back</a>
+<a class="link" href="main">Back</a>
 <h1>Advertisements</h1>
 
 <table>
