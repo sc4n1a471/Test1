@@ -10,10 +10,12 @@ class AdvertisementController {
         $this->db = new DatabaseController();
     }
 
+    // Query all ads
     public function getAds() {
         $ads = [];
         $data = $this->db->getAllData("advertisements");
 
+        // Iterates through array containing advertisements, creates Advertisement objects and adds them to an array
         foreach ($data as $individualData) {
             $ad = new Advertisement(
                 $individualData["id"],

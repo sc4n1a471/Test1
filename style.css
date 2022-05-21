@@ -1,0 +1,39 @@
+a:link, a:visited{
+    text-decoration: none;
+    font-size: large;
+    background-color: lightgrey;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    margin: 5px 5px 5px 5px;
+}
+
+a:hover {
+    background-color: lightcyan;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color:lightgray;
+    background-image: url('background.jpg');
+    background-position: left top;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    /*border-radius: 20px;*/
+    box-shadow: 0 0 10px 10px lightgrey;
+}
+
+table td, table th {
+    border: 5px solid gray;
+    padding: 8px;
+}
+
+.header {
+    background-color: lightgrey;
+}

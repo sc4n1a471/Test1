@@ -13,30 +13,18 @@ class Advertisement {
         $this->username = $username;
     }
 
-    /**
-     * @return mixed
-     */
     public function getId() {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTitle() {
         return $this->title;
     }
 
-    /**
-     * @return mixed
-     */
     public function getUserid() {
         return $this->userid;
     }
 
-    /**
-     * @return mixed
-     */
     public function getUsername() {
         return $this->username;
     }

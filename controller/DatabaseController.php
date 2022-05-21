@@ -29,9 +29,11 @@ class DatabaseController {
             die("Error: Connection failed: " . $connection->connect_error);
         }
 
-        console_log("Succesfully connected!");
+//        console_log("Succesfully connected!");
 
-
+        /*
+         * Determine what table's data is requested
+        */
         if ($table === "users") {
             $sqlCommand = "SELECT * FROM users";
         } else if ($table === "advertisements") {
@@ -50,9 +52,9 @@ class DatabaseController {
             // Columns are returned into the array having the fieldname as the array index.
             $data = mysqli_fetch_all($result, MYSQLI_ASSOC);    // returns an object with "id"/"name" as keys
 
-            $result -> free_result();   // Free result set
+            $result -> free_result();   // Free up result set
             $connection->close();       // Close connection
-            console_log($data);
+//            console_log($data);
 
             return $data;
         } else {
