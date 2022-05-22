@@ -1,7 +1,7 @@
 <?php
 class User {
-    private $id;
-    private $name;
+    private int $id;
+    private string $name;
 
     public function __construct($id, $name) {
         $this->id = $id;

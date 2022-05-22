@@ -9,8 +9,8 @@
 <br>
 
 <nav>
-    <a class=\"link\" href="users">Users</a>
-    <a class=\"link\" href="ads">Advertisements</a>
+    <a class="link" href="users">Users</a>
+    <a class="link" href="ads">Advertisements</a>
 </nav>
 <h1>Main page</h1>
 

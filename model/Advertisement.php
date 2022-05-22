@@ -1,10 +1,10 @@
 <?php
 
 class Advertisement {
-    private $id;
-    private $userid;
-    private $title;
-    private $username;
+    private int $id;
+    private int $userid;
+    private string $title;
+    private string $username;
 
     public function __construct($id, $userid, $title, $username) {
         $this->id = $id;
